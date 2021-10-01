@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>python</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-4631927887755706247</string>
+			<key>name</key>
+			<string>127.0.0.1</string>
+			<key>port</key>
+			<integer>8809</integer>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>test</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0
+			b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRk
+			YXRhgAGtCwwZGhscHSEoLDA1OlUkbnVsbNMNDg8QFBhXTlMua2V5
+			c1pOUy5vYmplY3RzViRjbGFzc6MREhOAAoADgASjFRYXgAWABoAI
+			gAxUdHlwZVRyb3dzVGtleXNfECZTZWxlY3Rpb25EZXRhaWxUeXBl
+			UHJpbWFyeUtleWVkRGV0YWlsc9MNDg8eHyCgoIAH0iIjJCVaJGNs
+			YXNzbmFtZVgkY2xhc3Nlc18QE05TTXV0YWJsZURpY3Rpb25hcnmj
+			JCYnXE5TRGljdGlvbmFyeVhOU09iamVjdNIODykroSqACYAL0g8t
+			Li9ZTlMuc3RyaW5ngApSaWTSIiMxMl8QD05TTXV0YWJsZVN0cmlu
+			Z6MxMzRYTlNTdHJpbmdYTlNPYmplY3TSIiM2N15OU011dGFibGVB
+			cnJheaM2ODlXTlNBcnJheVhOU09iamVjdNIiIyY7oiY8WE5TT2Jq
+			ZWN0AAgAEQAaACQAKQAyADcASQBMAFEAUwBhAGcAbgB2AIEAiACM
+			AI4AkACSAJYAmACaAJwAngCjAKgArQDWAN0A3gDfAOEA5gDxAPoB
+			EAEUASEBKgEvATEBMwE1AToBRAFGAUkBTgFgAWQBbQF2AXsBigGO
+			AZYBnwGkAacAAAAAAAACAQAAAAAAAAA9AAAAAAAAAAAAAAAAAAAB
+			sA==
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {694, 444}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>
+select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 1 and type= 'P'
+group by word, question, type
+order by ranking desc
+limit 10;
+
+select type,question,count(word) from wordtoken
+group by question, type
+order by type,question;
+
+# A	1	20066
+# A	2	3020
+# A	3	3076
+# A	4	127077
+# P	1	7579
+# P	2	991
+# P	3	1895
+# P	4	55297
+
+select type,question,count(distinct word) from wordtoken
+group by question, type
+order by type,question;
+
+# A	1	5175
+# A	2	981
+# A	3	1384
+# A	4	16058
+# P	1	3480
+# P	2	486
+# P	3	1170
+# P	4	12985
+
+select count(*) from wordtoken; #219001
+
+select count(distinct word) from wordtoken; #24867
+
+
+# cleanup
+delete from wordtoken;</string>
+			<key>table</key>
+			<string>wordtoken</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>202</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string># A	1	20066
+# A	2	3020
+# A	3	3076
+# A	4	127077
+# P	1	7579
+# P	2	991
+# P	3	1895
+# P	4	55297
+
+select type,question,count(distinct word) from wordtoken
+group by question, type
+order by type,question</string>
+		<string>select type,question,count(word) from wordtoken
+group by question, type
+order by type,question</string>
+		<string>select count(*) from wordtoken</string>
+		<string>select count(distinct word) from wordtoken</string>
+		<string>select type,question,count(word) from wordtoken
+group by question, type
+order by question</string>
+		<string>select count(word) from wordtoken
+group by question, type
+order by question</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 1 and type= 'P'
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 2 and type= 'P'
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 3 and type= 'P'
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 4 and type= 'P'
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 4
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 3
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>delete from wordtoken</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+group by word, question, typea
+order by ranking desc
+limit 10</string>
+		<string>select distinct(word), count(word) as ranking
+from wordtoken
+group by word
+order by ranking desc
+limit 10</string>
+		<string>delete wordtoken</string>
+		<string>select distinct(word), count(word) as ranking
+from wordtoken
+group by word
+order by ranking desc</string>
+		<string>select distinct(word), count(word) as ranking
+from wordtoken
+group by word
+order by rankin desc</string>
+		<string>select distinct(word), count(word) as ranking
+from wordtoken
+group by word</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.7.26</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
