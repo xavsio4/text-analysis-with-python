@@ -145,14 +145,40 @@ order by type,question</string>
 		<string>select type,question,count(word) from wordtoken
 group by question, type
 order by type,question</string>
-		<string>select count(*) from wordtoken</string>
-		<string>select count(distinct word) from wordtoken</string>
-		<string>select type,question,count(word) from wordtoken
-group by question, type
-order by question</string>
-		<string>select count(word) from wordtoken
-group by question, type
-order by question</string>
+		<string>#215130
+
+select count(distinct word) from wordtoken</string>
+		<string># A	1	5175
+# A	2	981
+# A	3	1384
+# A	4	16058
+# P	1	3480
+# P	2	486
+# P	3	1170
+# P	4	12985
+
+select count(*) from wordtoken</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 4 and type= 'P'
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>delete from wordtoken where question = 4 and type = 'P'</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 3 and type= 'P'
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>delete from wordtoken where question = 3 and type = 'P'</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 2 and type= 'P'
+group by word, question, type
+order by ranking desc
+limit 10</string>
+		<string>delete from wordtoken where question = 2 and type = 'P'</string>
 		<string>select distinct(word), count(word) as ranking, question, type
 from wordtoken
 where question = 1 and type= 'P'
@@ -161,62 +187,45 @@ order by ranking desc
 limit 10</string>
 		<string>select distinct(word), count(word) as ranking, question, type
 from wordtoken
-where question = 2 and type= 'P'
+where question = 4 and type= 'A'
 group by word, question, type
 order by ranking desc
 limit 10</string>
 		<string>select distinct(word), count(word) as ranking, question, type
 from wordtoken
-where question = 3 and type= 'P'
+where question = 4 and type= 'A'
+group by word, question, type
+order by ranking desc
+limit 11</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 3 and type= 'A'
+group by word, question, type
+order by ranking desc
+limit 11</string>
+		<string>select distinct(word), count(word) as ranking, question, type
+from wordtoken
+where question = 3 and type= 'A'
 group by word, question, type
 order by ranking desc
 limit 10</string>
 		<string>select distinct(word), count(word) as ranking, question, type
 from wordtoken
-where question = 4 and type= 'P'
+where question = 2 and type= 'A'
 group by word, question, type
 order by ranking desc
 limit 10</string>
 		<string>select distinct(word), count(word) as ranking, question, type
 from wordtoken
-where question = 4
+where question = 1 and type= 'A'
 group by word, question, type
 order by ranking desc
 limit 10</string>
-		<string>select distinct(word), count(word) as ranking, question, type
-from wordtoken
-where question = 3
-group by word, question, type
-order by ranking desc
-limit 10</string>
-		<string>select distinct(word), count(word) as ranking, question, type
-from wordtoken
-group by word, question, type
-order by ranking desc
-limit 10</string>
-		<string>delete from wordtoken</string>
-		<string>select distinct(word), count(word) as ranking, question, type
-from wordtoken
-group by word, question, typea
-order by ranking desc
-limit 10</string>
-		<string>select distinct(word), count(word) as ranking
-from wordtoken
-group by word
-order by ranking desc
-limit 10</string>
-		<string>delete wordtoken</string>
-		<string>select distinct(word), count(word) as ranking
-from wordtoken
-group by word
-order by ranking desc</string>
-		<string>select distinct(word), count(word) as ranking
-from wordtoken
-group by word
-order by rankin desc</string>
-		<string>select distinct(word), count(word) as ranking
-from wordtoken
-group by word</string>
+		<string>select count(*) from wordtoken</string>
+		<string>select count(distinct word) from wordtoken</string>
+		<string>select type,question,count(word) from wordtoken
+group by question, type
+order by question</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>
